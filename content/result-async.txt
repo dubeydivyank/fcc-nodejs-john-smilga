@@ -1,0 +1,1 @@
+Result of fs async: Hello this is first text file., Hello this is second text file.
