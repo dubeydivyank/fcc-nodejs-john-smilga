@@ -1,15 +1,12 @@
-//HTTP module
+const EventEmitter = require("events");
 
-const http = require("http");
+const customEmitter = new EventEmitter();
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.end("Welcome to Home Page");
-  }
-  if (req.url === "/about") {
-    res.end("<div>About us</div>");
-  }
-  res.end(`<h1>page doesnt exist</h1>`);
+customEmitter.on("response", (firstname) => {
+  console.log(`FirstName: ${firstname}`);
+});
+customEmitter.on("response", (firstname, lastname) => {
+  console.log(`LastName: ${lastname}`);
 });
 
-server.listen(5000);
+customEmitter.emit("response", "Divyank", "Dubey");
